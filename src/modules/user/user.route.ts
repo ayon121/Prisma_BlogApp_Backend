@@ -5,6 +5,7 @@ export const Userrouter = express.Router()
 
 
 Userrouter.get("/" , UserController.gettAllUser)
+Userrouter.get("/:id" , UserController.getUserById)
 Userrouter.post("/" , UserController.createUser)
 
 

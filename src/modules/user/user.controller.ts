@@ -6,7 +6,7 @@ const createUser = async(req : Request , res: Response) => {
         const result = await UserService.createUser(req.body)
         res.status(201).send(result)
     } catch (error) {
-        console.log(error); 
+        res.send(500)
     }
 }
 
@@ -21,7 +21,19 @@ const gettAllUser = async(req : Request , res: Response) => {
 }
 
 
+const getUserById = async(req : Request , res: Response) => {
+    const id = Number(req.params.id)
+    try {
+        const result = await UserService.getUserById(id)
+        res.send(result)
+    } catch (error) {
+        console.log(error); 
+    }
+}
+
+
 export const UserController = {
     createUser,
     gettAllUser,
+    getUserById,
 }
