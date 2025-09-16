@@ -2,6 +2,7 @@ import compression from "compression";
 import cors from "cors";
 import express from "express";
 import { Userrouter } from "./modules/user/user.route";
+import { postRouter } from "./modules/post/post.router";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/api/v1/user" , Userrouter)
+app.use("/api/v1/post" , postRouter)
 
 // 404 Handler
 app.use((req, res, next) => {
